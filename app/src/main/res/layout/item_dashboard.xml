@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Bettbox Modern Card Style for Dashboard Items -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.SagerNet.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="6dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="6dp"
-    app:cardCornerRadius="12dp"
+    android:layout_marginStart="@dimen/bettbox_card_margin"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="@dimen/bettbox_card_margin"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="@dimen/card_radius_md"
     app:cardElevation="0dp"
-    app:strokeColor="?attr/colorControlHighlight"
-    app:strokeWidth="1dp">
+    app:strokeColor="@color/card_stroke"
+    app:strokeWidth="@dimen/card_stroke_width">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,6 +35,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:text="Zashboard" />
 
@@ -41,15 +44,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:background="@drawable/bg_chip_rounded"
-                android:paddingStart="6dp"
+                android:background="@drawable/bg_pill_protocol"
+                android:paddingStart="8dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="6dp"
+                android:paddingEnd="8dp"
                 android:paddingBottom="2dp"
                 android:text="@string/dashboard_item_preset_tag"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorPrimary"
-                android:textSize="10sp"
+                android:textSize="10.5sp"
                 android:visibility="gone"
                 tools:visibility="visible" />
 
@@ -59,14 +62,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:background="@drawable/bg_chip_rounded"
-                android:paddingStart="6dp"
+                android:paddingStart="8dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="6dp"
+                android:paddingEnd="8dp"
                 android:paddingBottom="2dp"
                 android:text="@string/dashboard_item_default_tag"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorSecondary"
-                android:textSize="10sp"
+                android:textSize="10.5sp"
                 android:visibility="gone"
                 tools:visibility="visible" />
 
@@ -76,11 +79,12 @@
             android:id="@+id/text_dashboard_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:ellipsize="middle"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp"
             tools:text="https://board.zash.run.place/" />
 
         <!-- Diagnostic info banner (shown after test) -->
@@ -89,9 +93,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:background="@drawable/bg_chip_rounded"
-            android:padding="6dp"
+            android:background="@drawable/bg_pill_latency"
+            android:padding="8dp"
             android:textAppearance="?attr/textAppearanceCaption"
+            android:textSize="11.5sp"
             android:visibility="gone"
             tools:text="Latency: 120ms - Clash API Ready"
             tools:visibility="visible" />
@@ -99,7 +104,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:gravity="end|center_vertical"
             android:orientation="horizontal">
 
@@ -113,7 +118,8 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/dashboard_test_btn"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_edit_dashboard"
@@ -125,7 +131,8 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:text="@string/action_edit"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_delete_dashboard"
@@ -138,20 +145,22 @@
                 android:paddingEnd="8dp"
                 android:text="@string/delete"
                 android:textColor="?attr/colorError"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_select_dashboard"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="6dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:text="@string/apply"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:cornerRadius="@dimen/button_corner_radius" />
 
         </LinearLayout>
 
