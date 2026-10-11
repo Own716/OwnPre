@@ -288,6 +288,7 @@
     <!-- ElevatedCard: shadow + tonal surface, no stroke. -->
     <style name="Widget.SagerNet.CardView.Elevated">
         <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_radius_md</item>
         <item name="strokeWidth">0dp</item>
         <item name="cardBackgroundColor">?attr/cardElevatedSurfaceColor</item>
     </style>
