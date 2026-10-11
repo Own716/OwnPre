@@ -1,14 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Based on: https://github.com/android/platform_frameworks_base/blob/505e3ab/core/res/res/layout/simple_list_item_2.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bettbox Modern Card Style for OwnBox Profile Items -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
+    style="@style/Widget.SagerNet.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
+    android:layout_marginStart="@dimen/bettbox_card_margin"
+    android:layout_marginEnd="@dimen/bettbox_card_margin"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="@dimen/profile_card_corner_radius">
+    app:cardCornerRadius="@dimen/profile_card_corner_radius"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/card_stroke"
+    app:strokeWidth="@dimen/card_stroke_width">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,10 +29,12 @@
             android:focusable="false"
             android:orientation="vertical">
 
+            <!-- Top Row: Node Name & Actions -->
             <LinearLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -33,23 +43,24 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="6dp">
 
                     <TextView
                         android:id="@+id/profile_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLines="2"
-                        android:ellipsize="end"
                         android:breakStrategy="simple"
+                        android:ellipsize="end"
                         android:hyphenationFrequency="none"
                         android:lineBreakStyle="loose"
                         android:lineBreakWordStyle="phrase"
+                        android:maxLines="2"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="@string/profile_name" />
                 </LinearLayout>
@@ -58,7 +69,7 @@
                     android:id="@+id/edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top"
+                    android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/edit"
                     android:focusable="true"
@@ -82,12 +93,12 @@
                     android:id="@+id/share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top"
+                    android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/more"
                     android:focusable="true"
-                    android:visibility="gone"
-                    android:nextFocusLeft="@+id/container">
+                    android:nextFocusLeft="@+id/container"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:id="@+id/share_layer"
@@ -108,7 +119,7 @@
                     android:id="@+id/remove"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top"
+                    android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/delete"
                     android:focusable="true"
@@ -118,12 +129,13 @@
 
             </LinearLayout>
 
+            <!-- Middle Row: Server Address & Traffic (Optional / Dynamic) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
                 android:paddingBottom="4dp"
                 android:visibility="gone"
                 tools:visibility="visible">
@@ -133,45 +145,53 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:singleLine="true"
                     android:ellipsize="marquee"
-                    android:marqueeRepeatLimit="marquee_forever"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
+                    android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
-                    tools:text="@string/server_address"
+                    android:singleLine="true"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp"
+                    tools:text="@string/server_address" />
 
                 <TextView
                     android:id="@+id/traffic_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="@string/traffic"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp"
+                    tools:text="@string/traffic" />
 
             </LinearLayout>
 
+            <!-- Bottom Row: Bettbox Protocol Pill & Latency Status Pill -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:baselineAligned="true"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="12dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/profile_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_protocol"
+                    android:letterSpacing="0.03"
                     android:paddingStart="8dp"
+                    android:paddingTop="2.5dp"
                     android:paddingEnd="8dp"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:textSize="11sp"
+                    android:paddingBottom="2.5dp"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="10.5sp"
                     android:textStyle="bold"
                     tools:text="VMESS" />
 
@@ -185,16 +205,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:gravity="end"
-                    android:singleLine="true"
+                    android:background="@drawable/bg_pill_latency"
                     android:ellipsize="end"
+                    android:gravity="end"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2.5dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="2.5dp"
+                    android:singleLine="true"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?android:textColorSecondary" />
+                    android:textColor="?android:textColorSecondary"
+                    android:textSize="11.5sp"
+                    android:textStyle="bold"
+                    tools:text="148ms" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Selected Indicator Pill / Bar -->
         <View
             android:id="@+id/selected_indicator"
             android:layout_width="@dimen/profile_card_selected_bar_width"
